@@ -41,7 +41,7 @@ public class ErrorHandlingGrpcClient {
 
         final EchoRequest request = EchoRequest.getDefaultInstance();
 
-        ErrorServiceGrpc.ErrorServiceBlockingStub stub = ErrorServiceGrpc.newBlockingStub(channel);
+        ErrorServiceGrpc.ErrorServiceBlockingStub stub = ErrorServiceGrpc.newBlockingStub(channel).withInterceptors(new ClientExceptionHandlingInterceptor());
 
         try {
             stub.uncaughtExceptionUnaryCall(request);

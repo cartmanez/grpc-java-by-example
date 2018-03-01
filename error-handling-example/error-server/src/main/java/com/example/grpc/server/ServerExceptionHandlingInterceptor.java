@@ -8,7 +8,7 @@ import io.grpc.ServerInterceptor;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 
-public class ExceptionHandlingInterceptor implements ServerInterceptor {
+public class ServerExceptionHandlingInterceptor implements ServerInterceptor {
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> serverCall, Metadata metadata, ServerCallHandler<ReqT, RespT> serverCallHandler) {
         return new Listener<>(serverCallHandler.startCall(serverCall, metadata));

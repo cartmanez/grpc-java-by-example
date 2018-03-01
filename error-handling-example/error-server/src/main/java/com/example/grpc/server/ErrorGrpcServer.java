@@ -30,7 +30,7 @@ public class ErrorGrpcServer {
     static public void main(String[] args) throws IOException, InterruptedException {
 
         Server server = ServerBuilder.forPort(8080)
-                .addService(ServerInterceptors.intercept(new ErrorServiceImpl().bindService(), new ExceptionHandlingInterceptor(), TransmitStatusRuntimeExceptionInterceptor.instance()/*, unknownStatusDescriptionInterceptor*/))
+                .addService(ServerInterceptors.intercept(new ErrorServiceImpl().bindService(), new ServerExceptionHandlingInterceptor(), TransmitStatusRuntimeExceptionInterceptor.instance()/*, unknownStatusDescriptionInterceptor*/))
                 .build();
 
         System.out.println("Starting server...");
