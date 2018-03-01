@@ -30,10 +30,6 @@ message EchoResponse {
 }
 
 service ErrorService {
-    rpc notImplemented(EchoRequest) returns (EchoResponse);
-    rpc customUnwrapException(EchoRequest) returns (EchoResponse);
-    rpc customException(EchoRequest) returns (EchoResponse);
-    rpc uncaughtExceptions(EchoRequest) returns (EchoResponse);
-    rpc deadlineExceeded(EchoRequest) returns (EchoResponse);
-    rpc automaticallyWrappedException(EchoRequest) returns (EchoResponse);
+    rpc uncaughtExceptionUnaryCall(EchoRequest) returns (EchoResponse);
+    rpc uncaughtExceptionStreamingCall(EchoRequest) returns (stream EchoResponse);
 }
